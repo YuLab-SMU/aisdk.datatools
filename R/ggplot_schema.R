@@ -1587,23 +1587,6 @@ sanitize_for_json <- function(x, plot_dims = list(width = 8, height = 6)) {
   as.character(x)
 }
 
-#' @title Generate Stable ID
-#' @description
-#' Generates a stable unique identifier for a plot element.
-#' @param type Type of element (e.g., "layer", "guide").
-#' @param ... Components to include in the ID hash.
-#' @param prefix Optional prefix for the ID.
-#' @return A stable ID string.
-#' @importFrom digest digest
-#' @keywords internal
-generate_stable_id <- function(type, ..., prefix = NULL) {
-  components <- c(as.character(type), as.character(list(...)))
-  # Use digest from the package
-  hash <- substr(digest::digest(paste(components, collapse = "_")), 1, 8)
-  if (!is.null(prefix)) {
-    paste0(prefix, "_", hash)
-  } else {
-    hash
-  }
-}
+# generate_stable_id() was relocated to R/utils_ids.R (core) so that both core
+# and the companion package aisdk.datatools can use it. See utils_ids.R.
 

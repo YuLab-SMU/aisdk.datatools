@@ -4,9 +4,9 @@
 \name{aisdk.datatools-package}
 \alias{aisdk.datatools}
 \alias{aisdk.datatools-package}
-\title{aisdk.datatools: Data-Science Agent Tools for the 'aisdk' Toolkit}
+\title{aisdk.datatools: Charting and Reporting Tools for the 'aisdk' Toolkit}
 \description{
-R-native data-science tooling for 'aisdk' agents. Provides a structured 'ggplot2' chart schema and renderer, a 'knitr'-based reporting engine, autonomous data-science pipelines, a code sandbox, and R environment/object introspection tools that agents can call to inspect data and produce artifacts.
+Heavy-dependency charting and reporting tools for the 'aisdk' toolkit: a structured 'ggplot2' chart schema and renderer, a 'knitr'-based AI reporting engine, and artifact generation. The package registers a 'ggplot' JSON coercion handler with the core serializer on load, so 'aisdk' stays free of 'ggplot2'/'knitr' dependencies unless this package is used.
 }
 \seealso{
 Useful links:

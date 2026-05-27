@@ -1,16 +1,24 @@
 # aisdk.datatools
 
-R-native data-science agent tools for the
-[aisdk](https://github.com/YuLab-SMU/aisdk) toolkit.
+Charting and reporting tools for the
+[aisdk](https://github.com/YuLab-SMU/aisdk) toolkit — the heavy-dependency
+pieces that core deliberately does not ship.
 
-Provides tools that `aisdk` agents can call to inspect data and produce
-artifacts:
+- a structured **ggplot2** chart schema and renderer (`ggplot_to_z_object`, the
+  `z_ggplot` schema, frontend JSON),
+- a **knitr** `{ai}` reporting engine (`register_ai_engine`),
+- artifact generation.
 
-- a structured **ggplot2** chart schema and renderer,
-- a **knitr**-based reporting engine,
-- autonomous data-science pipelines,
-- a safe R code **sandbox**,
-- R environment/object **introspection** tools.
+## Dependency inversion
+
+`aisdk` core has no hard dependency on `ggplot2`/`knitr`. On load, this package
+registers a ggplot JSON-coercion handler with the core serializer via
+`aisdk::register_json_coercion()`, so `aisdk::safe_to_json()` can serialize
+ggplot objects only when this package is installed.
+
+> The R-code **sandbox** and **R-introspection** agent tools are *not* here —
+> they have no heavy dependencies and remain in `aisdk` core, where they are used
+> by sandbox mode, the multi-agent flows, and the console.
 
 ## Installation
 
